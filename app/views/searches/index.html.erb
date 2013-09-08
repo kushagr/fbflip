@@ -1,0 +1,18 @@
+<h1>Results</h1>
+<h3><%= @user.college["school"]["name"] %></h3>
+<h4>Friends from your college.</h4>
+<div id="college-friends">
+	<% @user.college_friends.each do |friend| %>
+		<div id="friend">
+		<div id="name"><%= friend[:name] %></div>
+		</div>
+	<% end %>
+</div>
+<h4>Friends from Nowhere.</h4>
+<div id="non-college-friends">
+	<% @user.non_college_friends.each do |friend| %>
+		<div id="friend">
+		<div id="name"><%= friend[:name] %></div>
+		</div>
+	<% end %>
+</div> 
