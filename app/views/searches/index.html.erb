@@ -1,18 +1,24 @@
 <h1>Results</h1>
-<h3><%= @user.college["school"]["name"] %></h3>
+<h3><%= current_user.college["school"]["name"] %></h3>
+
 <h4>Friends from your college.</h4>
-<div id="college-friends">
-	<% @user.college_friends.each do |friend| %>
+<%  college_friends = current_user.college_friends %>
+<%= content_tag "div", id: "college-friends", data: { friends: college_friends.map { |friend| friend[:id] } } do %>
+	<% college_friends.each do |friend| %>
 		<div id="friend">
 		<div id="name"><%= friend[:name] %></div>
 		</div>
 	<% end %>
-</div>
-<h4>Friends from Nowhere.</h4>
-<div id="non-college-friends">
-	<% @user.non_college_friends.each do |friend| %>
+<% end %>
+
+
+
+<h4>Friends NOT from your college.</h4>
+<%  friends = current_user.friends %>
+<%= content_tag "div", id: "friends", data: { friends: friends.map { |friend| friend[:id] } } do %>
+	<% friends.each do |friend| %>
 		<div id="friend">
 		<div id="name"><%= friend[:name] %></div>
 		</div>
 	<% end %>
-</div> 
+<% end %>

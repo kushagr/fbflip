@@ -13,9 +13,9 @@ class SearchesController < ApplicationController
   #   @friendlists.each do |friend|
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
-  @facebook_cookies = parse_facebook_cookies
-  @user = User.from_facebook(@facebook_cookies)
-  # binding.pry
+  @curren_user = current_user
+     
+
     # user = User.new
     #p user.college
     # p user.college_friends
