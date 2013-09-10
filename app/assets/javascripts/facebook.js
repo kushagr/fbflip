@@ -54,7 +54,7 @@ $(document).ready(function(){
               condole.log(response);
               window.location = '/sessions/create';
             }
-          }, {scope: 'email,read_friendlists,user_education_history,friends_education_history'}); 
+          }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
         }
       });
     });
