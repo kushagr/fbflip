@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
   
+  skip_before_filter :verify_authenticity_token
+
  def index
   # 	@graph = Koala::Facebook::GraphAPI.new(@facebook_cookies['access_token'])
   # 	@user = @graph.get_object("me")
@@ -13,11 +15,11 @@ class SearchesController < ApplicationController
   #   @friendlists.each do |friend|
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
-    if params[:signed_request]
-            p signed_request
+  if current_user
 
-      @user = User.from_facebook(signed_request)
-    end
+  else
+    
+  end
      
 
     # user = User.new
