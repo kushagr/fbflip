@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 	def create
 		if params[:signed_request]
-			p signed_request
+			logger.info signed_request.to_s
 			user = User.from_facebook(signed_request)
 			session[:current_user] = user.id
 			# binding.pry
