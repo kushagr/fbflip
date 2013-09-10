@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :exception
 
+  # before_filter do
+  #   if params[:signed_request]
+  #     oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'], ENV['FB_APP_SECRET'])
+  #     session[:signed_request] = oauth.parse_signed_request(params[:signed_request])
+  #   end
+  # end
+
+
+
   private
 
   # def facebook_cookies
