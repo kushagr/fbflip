@@ -37,7 +37,7 @@ $(document).ready(function(){
       alert("YO MAMA");
     }
 
-     $('#college-friends').load(function(){
+     $('#college-friends').click(function(){
         yo_mama();
         check_cookie();
      }); 
