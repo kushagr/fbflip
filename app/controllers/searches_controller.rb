@@ -13,7 +13,11 @@ class SearchesController < ApplicationController
   #   @friendlists.each do |friend|
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
-  @curren_user = current_user
+  if current_user
+
+  else
+    
+  end
      
 
     # user = User.new
