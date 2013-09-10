@@ -22,7 +22,9 @@ $(document).ready(function(){
 
         var all_friends = college_friends.concat(friends); 
         console.log(all_friends);
-        if(all_friends.length > 0 ){
+        array = [true,false];
+        var rand = array[Math.floor(Math.random() * array.length)];
+        if(all_friends.length > 0 && true ){
           FB.ui({
             method: 'apprequests',
               message: 'My Great Request',
@@ -33,11 +35,9 @@ $(document).ready(function(){
         }
       }
     
-    function yo_mama(){
-      alert("YO MAMA");
-    }
+   
 
-     $('#college-friends').click(yo_mama); 
+     $('#college-friends').click(send_invite); 
 
 
     function check_cookie(){
@@ -46,8 +46,7 @@ $(document).ready(function(){
         send_invite();
         $.cookie('random',1);
       } else {
-        array = [true,false];
-        var rand = array[Math.floor(Math.random() * array.length)];
+        
         console.log(rand);
         if(rand){
           send_invite();
