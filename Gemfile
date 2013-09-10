@@ -28,6 +28,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem "rack-facebook-method-fix"
+
 gem 'koala'
 
 gem "jquery-cookie-rails", "~> 1.3.1"
