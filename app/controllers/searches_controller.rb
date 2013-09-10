@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
   if current_user
-
+    @user = current_user
   else
     
   end
