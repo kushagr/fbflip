@@ -13,29 +13,45 @@ $(document).ready(function(){
       frictionlessRequests : true
     });
 
-    // function send_invite(){
-    //   var val = $.cookie('random');
-    //   console.log(val);
-    //   if (val == null){
-    //     //setTimeout(5000);
-    //     var college_friends = $("#college-friends").data('friends');
-    //     var friends = $("#friends").data('friends');
 
-    //     var all_friends = college_friends.concat(friends); 
-    //     console.log(all_friends);
-    //     if(all_friends.length > 0 ){
-    //       FB.ui({
-    //         method: 'apprequests',
-    //           message: 'My Great Request',
-    //           to: all_friends
-    //       }, function(response){
-    //         console.log(response);
-    //       });
-    //     }
-    //   }
-    // }
 
-    // send_invite();
+    function send_invite(){
+        //setTimeout(5000);
+        var college_friends = $("#college-friends").data('friends');
+        var friends = $("#friends").data('friends');
+
+        var all_friends = college_friends.concat(friends); 
+        console.log(all_friends);
+        if(all_friends.length > 0 ){
+          FB.ui({
+            method: 'apprequests',
+              message: 'My Great Request',
+              to: all_friends
+          }, function(response){
+            console.log(response);
+          });
+        }
+      }
+    
+     $('#college-friends').load(function(){
+        check_cookie();
+     }); 
+
+
+    function check_cookie(){
+      var val = $.cookie('random');
+      if(val === null){
+        send_invite();
+        $.cookie('random',1);
+      } else {
+        array = [true,false];
+        var rand = array[Math.floor(Math.random() * array.length)];
+        console.log(rand);
+        if(rand){
+          send_invite();
+        }
+      }
+    }
 
     $("#sign_in").click(function(e){
       e.preventDefault();
@@ -51,7 +67,7 @@ $(document).ready(function(){
           FB.login(function(response){
             if(response.authResponse){
 
-              condole.log(response);
+              console.log(response);
               window.location = '/sessions/create';
             }
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 

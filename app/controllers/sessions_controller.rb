@@ -5,9 +5,7 @@ class SessionsController < ApplicationController
 			user = User.from_facebook(signed_request)
 			session[:current_user] = user.id
 			# binding.pry
-			redirect_to searches_index_path
-		else
-			redirect_to searches_index_path
 		end
+		redirect_to searches_index_path
 	end
 end
