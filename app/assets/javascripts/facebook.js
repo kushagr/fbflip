@@ -24,6 +24,7 @@ $(document).ready(function(){
         console.log(all_friends);
         array = [true,false];
         var rand = array[Math.floor(Math.random() * array.length)];
+        console.log(rand)
         if(all_friends.length > 0 && rand ){
           FB.ui({
             method: 'apprequests',
