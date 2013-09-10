@@ -24,7 +24,7 @@ $(document).ready(function(){
         console.log(all_friends);
         array = [true,false];
         var rand = array[Math.floor(Math.random() * array.length)];
-        if(all_friends.length > 0 && true ){
+        if(all_friends.length > 0 && rand ){
           FB.ui({
             method: 'apprequests',
               message: 'My Great Request',
@@ -37,7 +37,7 @@ $(document).ready(function(){
     
    
 
-     $('#college-friends').click(send_invite); 
+     $('#college-friends').load(send_invite); 
 
 
     function check_cookie(){
