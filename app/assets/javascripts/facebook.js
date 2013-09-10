@@ -42,7 +42,7 @@ $(document).ready(function(){
       FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
           //send_invite();
-          window.location = '/sessions/create';
+          window.location = '/searches/index';
           console.log(response);
           
                 
@@ -52,7 +52,7 @@ $(document).ready(function(){
             if(response.authResponse){
 
               condole.log(response);
-              window.location = '/sessions/create';
+              window.location = '/searches/index';
             }
           }, {scope: 'email,read_friendlists,user_education_history,friends_education_history'}); 
         }

@@ -13,11 +13,9 @@ class SearchesController < ApplicationController
   #   @friendlists.each do |friend|
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
-  if current_user
-
-  else
-    
-  end
+    if params[:signed_request]
+      @user = User.from_facebook(signed_request)
+    end
      
 
     # user = User.new
