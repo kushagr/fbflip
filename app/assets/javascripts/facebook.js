@@ -43,7 +43,7 @@ $(document).ready(function(){
         if (response.status === 'connected') {
           //send_invite();
           window.location = '/sessions/create';
-          //console.log(response);
+          console.log(response);
           
                 
       } else {
@@ -51,7 +51,7 @@ $(document).ready(function(){
           FB.login(function(response){
             if(response.authResponse){
 
-              
+              condole.log(response);
               window.location = '/sessions/create';
             }
           }, {scope: 'email,read_friendlists,user_education_history,friends_education_history'}); 

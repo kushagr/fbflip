@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
-	def self.from_facebook(cookie)
-		user = find_or_initialize_by(:fb_uid =>cookie["user_id"]) 
+	def self.from_facebook(request)
+		user = find_or_initialize_by(:fb_uid =>request["user_id"]) 
 		# get long-lived exchange token immidiately.
-		long_lived_access_token = Koala::Facebook::OAuth.new.exchange_access_token(cookie['access_token'])
+		long_lived_access_token = Koala::Facebook::OAuth.new.exchange_access_token(request['oauth_token'])
 		user.access_token = long_lived_access_token
 		user.save!
 		return user

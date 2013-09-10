@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def facebook_cookies
-   @facebook_cookies ||= Koala::Facebook::OAuth.new.get_user_info_from_cookie(cookies)
+  # def facebook_cookies
+  #  @facebook_cookies ||= Koala::Facebook::OAuth.new.get_user_info_from_cookie(cookies)
+  #  # binding.pry
+  # end
+
+  def signed_request
+    @signed_request = Koala::Facebook::OAuth.new.parse_signed_request(params[:signed_request])    
   end
+
 
   def current_user
     begin
@@ -20,5 +26,5 @@ class ApplicationController < ActionController::Base
 
   
 
-  helper_method :facebook_cookies, :current_user
+  helper_method :facebook_cookies, :signed_request,:current_user
 end
