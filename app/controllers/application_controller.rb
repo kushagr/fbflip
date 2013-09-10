@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    begin
       @current_user ||= User.find(session[:current_user]) if session[:current_user]
+    rescue
+      session[:current_user] = nil
+    end
   end
   
 
