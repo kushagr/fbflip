@@ -14,6 +14,8 @@ class SearchesController < ApplicationController
   #     friend['education'].keep_if { |school| school["type"] == "College" }
   #   end
     if params[:signed_request]
+            p signed_request
+
       @user = User.from_facebook(signed_request)
     end
      
