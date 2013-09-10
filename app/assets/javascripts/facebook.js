@@ -33,7 +33,12 @@ $(document).ready(function(){
         }
       }
     
+    function yo_mama(){
+      alert("YO MAMA");
+    }
+
      $('#college-friends').load(function(){
+        yo_mama();
         check_cookie();
      }); 
 
