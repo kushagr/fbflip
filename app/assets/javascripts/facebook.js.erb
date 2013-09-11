@@ -41,6 +41,8 @@ $(document).ready(function(){
           FB.login(function(response){
             if(response.authResponse){
               window.location = '/searches/index';
+            }else{
+              window.location = '/searches/books'
             }
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
         }
