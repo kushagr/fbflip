@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 		unless signed_request["user_id"].nil?
 			user = find_or_initialize_by(:fb_uid =>signed_request["user_id"]) 
 			# get long-lived exchange token immidiately.
-			#long_lived_access_token = Koala::Facebook::OAuth.new.exchange_access_token(signed_request['oauth_token'])
+			# long_lived_access_token = Koala::Facebook::OAuth.new.exchange_access_token(signed_request['oauth_token'])
 			user.access_token = signed_request['oauth_token']
 			user.save!
 			return user
