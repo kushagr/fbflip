@@ -1,25 +1,26 @@
 <%= link_to "Book Page", "/books/index" %>
-<h1>Results</h1>
-<h3><%= @user.college["school"]["name"] %></h3>
+<% if !@user.nil? %>
+	<h3><%= @user.college["school"]["name"] %></h3>
 
-<h4>Friends from your college.</h4>
-<%  college_friends = @user.college_friends %>
-<%= content_tag "div", id: "college-friends", data: { friends: college_friends.map { |friend| friend[:id] } } do %>
-	<% college_friends.each do |friend| %>
-		<div id="friend">
-		<div id="name"><%= friend[:name] %></div>
-		</div>
+	<h4>Friends from your college.</h4>
+	<%  college_friends = @user.college_friends %>
+	<%= content_tag "div", id: "college-friends", data: { friends: college_friends.map { |friend| friend[:id] } } do %>
+		<% college_friends.each do |friend| %>
+			<div id="friend">
+			<div id="name"><%= friend[:name] %></div>
+			</div>
+		<% end %>
 	<% end %>
-<% end %>
 
 
 
-<h4>Friends NOT from your college.</h4>
-<%  friends = @user.friends %>
-<%= content_tag "div", id: "friends", data: { friends: friends.map { |friend| friend[:id] } } do %>
-	<% friends.each do |friend| %>
-		<div id="friend">
-		<div id="name"><%= friend[:name] %></div>
-		</div>
+	<h4>Friends NOT from your college.</h4>
+	<%  friends = @user.friends %>
+	<%= content_tag "div", id: "friends", data: { friends: friends.map { |friend| friend[:id] } } do %>
+		<% friends.each do |friend| %>
+			<div id="friend">
+			<div id="name"><%= friend[:name] %></div>
+			</div>
+		<% end %>
 	<% end %>
 <% end %>
