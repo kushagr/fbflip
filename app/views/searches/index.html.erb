@@ -1,9 +1,9 @@
 <%= link_to "Book Page", "/books/index" %>
-<% if !@user.nil? %>
-	<h3><%= @user.college["school"]["name"] %></h3>
+<% unless current_user.nil? %>
+	<h3><%= current_user.college["school"]["name"] %></h3>
 
 	<h4>Friends from your college.</h4>
-	<%  college_friends = @user.college_friends %>
+	<%  college_friends = current_user.college_friends %>
 	<%= content_tag "div", id: "college-friends", data: { friends: college_friends.map { |friend| friend[:id] } } do %>
 		<% college_friends.each do |friend| %>
 			<div id="friend">
@@ -15,7 +15,7 @@
 
 
 	<h4>Friends NOT from your college.</h4>
-	<%  friends = @user.friends %>
+	<%  friends = current_user.friends %>
 	<%= content_tag "div", id: "friends", data: { friends: friends.map { |friend| friend[:id] } } do %>
 		<% friends.each do |friend| %>
 			<div id="friend">
