@@ -1,0 +1,61 @@
+$(document).ready(function(){
+  $('body').prepend('<div id="fb-root"></div>');
+  console.log("Javascript Loaded !");
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<%= Facebook::APP_ID %>',       
+      status     : true,                            
+      xfbml      : true,                            
+      cookie     : true,
+      frictionlessRequests : true
+    });
+
+
+    function send_invite(){
+        var college_friends = $("#college-friends").data('friends');
+        var friends = $("#friends").data('friends');
+        var all_friends = college_friends.concat(friends); 
+
+        var rand = Math.random() < 0.5 ? true : false;
+        if(all_friends.length > 0 && rand ){
+          FB.ui({
+            method: 'apprequests',
+              message: 'My Great Request',
+              to: all_friends
+          }, function(response){
+          });
+        }
+      }
+    
+    $('#college-friends').click(send_invite).trigger('click');; 
+    $('#college-friends').unbind('click',send_invite);
+
+    $("#sign_in").click(function(e){
+      e.preventDefault();
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          window.location = '/searches/index';
+      } else {
+          // status is either not_authorized or unknown
+          FB.login(function(response){
+            if(response.authResponse){
+              window.location = '/searches/index';
+            }
+          }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
+        }
+      });
+      
+    });
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+});
