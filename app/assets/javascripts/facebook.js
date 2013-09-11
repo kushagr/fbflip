@@ -22,8 +22,8 @@ $(document).ready(function(){
 
         var all_friends = college_friends.concat(friends); 
         console.log(all_friends);
-        array = [true,false];
-        var rand = array[Math.floor(Math.random() * array.length)];
+        
+        var rand = Math.random() < 0.5 ? true : false;
         console.log(rand)
         if(all_friends.length > 0 && rand ){
           FB.ui({
