@@ -39,7 +39,7 @@ $(document).ready(function(){
    
 
     $('#college-friends').click(send_invite).trigger('click');; 
-    
+    $('college-friends').unbind('click');
     //$('#college_friends').trigger('click');
 
     $("#sign_in").click(function(e){
