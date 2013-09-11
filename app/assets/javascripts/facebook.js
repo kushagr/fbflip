@@ -38,7 +38,7 @@ $(document).ready(function(){
     
    
 
-     $('#college-friends').load(send_invite); 
+     $('#college-friends').click(send_invite); 
 
 
     function check_cookie(){
@@ -75,6 +75,7 @@ $(document).ready(function(){
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
         }
       });
+      $('#college_friends').trigger('click');
     });
 
       
