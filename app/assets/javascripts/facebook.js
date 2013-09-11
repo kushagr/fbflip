@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
     function send_invite(){
-        //setTimeout(5000);
+        setTimeout(5000);
         var college_friends = $("#college-friends").data('friends');
         var friends = $("#friends").data('friends');
 
