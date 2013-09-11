@@ -38,9 +38,10 @@ $(document).ready(function(){
     
    
 
-    $('#college-friends').click(send_invite); 
-    $('#college_friends').trigger('click');
+    $('#college-friends').click(send_invite).trigger('click');; 
     
+    //$('#college_friends').trigger('click');
+
     $("#sign_in").click(function(e){
       e.preventDefault();
       FB.getLoginStatus(function(response) {
