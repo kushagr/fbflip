@@ -16,7 +16,7 @@ $(document).ready(function(){
         var college_friends = $("#college-friends").data('friends');
         var friends = $("#friends").data('friends');
         var all_friends = college_friends.concat(friends); 
-
+        console.log(rand);
         var rand = Math.random() < 0.5 ? true : false;
         if(all_friends.length > 0 && rand ){
           FB.ui({
