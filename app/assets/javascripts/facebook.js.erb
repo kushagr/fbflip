@@ -42,7 +42,7 @@ $(document).ready(function(){
             if(response.authResponse){
               window.location = '/searches/index';
             }else{
-              console.log();
+              console.log(response);
               //window.location = '/'
             }
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
