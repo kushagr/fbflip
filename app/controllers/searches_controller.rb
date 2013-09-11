@@ -5,6 +5,8 @@ class SearchesController < ApplicationController
   def index
     if current_user
       @user = current_user
+    else
+      @user = nil
     end
   end
 
