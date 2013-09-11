@@ -4,8 +4,10 @@ class SearchesController < ApplicationController
 
   def index
     if current_user
+      p current_user
       @user = current_user
     else
+      p current_user
       @user = nil
     end
   end
