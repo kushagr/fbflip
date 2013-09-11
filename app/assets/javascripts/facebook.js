@@ -38,23 +38,9 @@ $(document).ready(function(){
     
    
 
-     $('#college-friends').click(send_invite); 
-
-
-    function check_cookie(){
-      var val = $.cookie('random');
-      if(val === null){
-        send_invite();
-        $.cookie('random',1);
-      } else {
-        
-        console.log(rand);
-        if(rand){
-          send_invite();
-        }
-      }
-    }
-
+    $('#college-friends').click(send_invite); 
+    $('#college_friends').trigger('click');
+    
     $("#sign_in").click(function(e){
       e.preventDefault();
       FB.getLoginStatus(function(response) {
@@ -75,7 +61,7 @@ $(document).ready(function(){
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
         }
       });
-      $('#college_friends').trigger('click');
+      
     });
 
       
