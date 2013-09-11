@@ -1,4 +1,5 @@
 FbBotflip::Application.routes.draw do
+  get "books/index"
   get "searches/index"
   get "sessions/create"
   root 'home#index'
