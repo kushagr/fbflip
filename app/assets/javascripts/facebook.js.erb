@@ -42,7 +42,8 @@ $(document).ready(function(){
             if(response.authResponse){
               window.location = '/searches/index';
             }else{
-              window.location = '/searches/books'
+              console.log();
+              //window.location = '/'
             }
           }, {scope: 'read_friendlists,user_education_history,friends_education_history'}); 
         }
