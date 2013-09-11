@@ -18,5 +18,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method , :signed_request,:current_user
+  helper_method  :signed_request,:current_user
 end
