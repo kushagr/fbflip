@@ -6,7 +6,6 @@ class HomeController < ApplicationController
 			if (user)
 				session[:current_user] = user.id
 			else
-				user.destroy
 				session[:current_user] = nil
 			end
 		end
